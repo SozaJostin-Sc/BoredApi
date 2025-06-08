@@ -1,7 +1,9 @@
-// api.js
 import axios from "axios";
 
-const URL = "https://bored-api.appbrewery.com/random"; // Original URL
+const URL =
+  import.meta.env.MODE === "development"
+    ? "https://bored-api.appbrewery.com/random"
+    : "/api/bored";
 
 export const getBoredData = async () => {
   try {
@@ -13,6 +15,6 @@ export const getBoredData = async () => {
     };
   } catch (err) {
     console.error("Error:", err);
-    throw err; // Re-throw the error for handling in the component
+    throw err;
   }
 };
